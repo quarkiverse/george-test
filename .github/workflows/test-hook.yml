@@ -6,13 +6,13 @@ jobs:
   asciicinema:
     runs-on: ubuntu-latest
     steps:
+      - name: Update Package list
+        run: sudo apt-get update
       - name: Install Asciicinema
-        run: |
-          # Update the package list
-          sudo apt-get update
+        run: sudo apt-get install asciinema
+      - name: Install Asciinema-automation
+        run: python3 -m pip install asciinema-automation
+      - name: Install Asciinema-Agg
+        run: cargo install --git https://github.com/asciinema/agg
+
           
-          # Install Asciicinema
-          sudo apt-get install asciinema
-          
-          # Install the required dependencies
-          python3 -m pip install asciinema-automation
